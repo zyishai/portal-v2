@@ -1,24 +1,9 @@
-# README
+# Portal V2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the second version of the portal, written with Ruby on Rails.
 
-Things you may want to cover:
+Changes:
 
-* Ruby version
+- New, better interface (based on TailwindUI)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Redesigned architecture based on best-practices of RoR
