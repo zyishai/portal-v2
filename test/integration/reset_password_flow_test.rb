@@ -76,7 +76,7 @@ class ResetPasswordFlowTest < ActionDispatch::IntegrationTest
     assert_includes flash[:alert], "You must confirm your email before you can sign in"
   end
 
-  test "can update password" do
+  test "can reset password" do
     user = users(:three)
     old_password_digest = user.password_digest
     token = user.generate_password_reset_token
@@ -93,7 +93,7 @@ class ResetPasswordFlowTest < ActionDispatch::IntegrationTest
     assert_not_equal old_password_digest, user.password_digest
   end
 
-  test "should not update password for unconfirmed user" do
+  test "should not reset password for unconfirmed user" do
     user = users(:one)
     token = user.generate_password_reset_token
 
@@ -106,7 +106,7 @@ class ResetPasswordFlowTest < ActionDispatch::IntegrationTest
     assert_includes flash[:alert], "You must confirm your email before you can sign in"
   end
 
-  test "should not update password if token is expired" do
+  test "should not reset password if the token is expired" do
     expiration = User::PASSWORD_RESET_TOKEN_EXPIRATION
     User.const_set(:PASSWORD_RESET_TOKEN_EXPIRATION, 0.seconds)
 
@@ -120,7 +120,7 @@ class ResetPasswordFlowTest < ActionDispatch::IntegrationTest
     User.const_set(:PASSWORD_RESET_TOKEN_EXPIRATION, expiration)
   end
 
-  test "should not update if passwords don't match" do
+  test "should not reset the password if passwords don't match" do
     user = users(:two)
     token = user.generate_password_reset_token
 
