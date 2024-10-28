@@ -1,0 +1,5 @@
+one:
+  user_agent: "Safari on MacOS"
+
+two:
+  user_agent: "Chrome on Windows"
