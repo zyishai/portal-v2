@@ -1,0 +1,42 @@
+login_1:
+  visitor: one
+  method: POST
+  path: /login
+  params: { user: { email: "one@test.com", password: "1234" } }
+  created_at: <%= 1.hour.ago %>
+
+login_2:
+  visitor: one
+  method: POST
+  path: /login
+  params: { user: { email: "one@test.com", password: "1234" } }
+  created_at: <%= 37.minutes.ago %>
+
+login_2:
+  visitor: two
+  method: POST
+  path: /login
+  params: { user: { email: "two@test.com", password: "abcd" } }
+
+home_1:
+  visitor: one
+  method: GET
+  path: /
+  created_at: <%= 35.minutes.ago %>
+
+home_2:
+  visitor: one
+  method: GET
+  path: /
+  created_at: <%= 20.minutes.ago %>
+
+account_1:
+  visitor: one
+  method: GET
+  path: /account
+  created_at: <%= 11.minutes.ago %>
+
+account_2:
+  visitor: two
+  method: GET
+  path: /account
