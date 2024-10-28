@@ -23,5 +23,8 @@ module PortalV2
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # This is a bug in Rails originating from the Globalize gem. See: https://github.com/rails/rails/issues/50483
+    config.active_record.default_column_serializer = JSON
   end
 end

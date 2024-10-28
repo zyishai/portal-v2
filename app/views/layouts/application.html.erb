@@ -22,5 +22,9 @@
     <%= render partial: "layouts/flash" %>
     <%= render partial: "layouts/header" %>
     <%= yield %>
+
+    <% unless session[:enable_analytics] == true %>
+      <%= render partial: "layouts/analytics" %>
+    <% end %>
   </body>
 </html>

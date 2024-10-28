@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :active_sessions, dependent: :destroy
+  has_many :visits, class_name: "Visitor"
+  has_many :events, through: :visits
 
   CONFIRMATION_TOKEN_EXPIRATION = 10.minutes
   PASSWORD_RESET_TOKEN_EXPIRATION = 10.minutes
@@ -66,6 +68,14 @@ class User < ApplicationRecord
 
   def generate_password_reset_token
     signed_id expires_in: PASSWORD_RESET_TOKEN_EXPIRATION, purpose: :reset_password
+  end
+
+  def time_on_site
+    Visitor.total_time_on_site_for_visitor(visits)
+  end
+
+  def average_time_on_site
+    Visitor.average_time_on_site_for_visitor(visits)
   end
 
   private

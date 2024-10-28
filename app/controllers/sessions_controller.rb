@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         after_login_path = session[:user_return_to] || root_path
         active_session = login @user
         remember(active_session) if params[:user][:remember_me] == "1"
+        Current.visitor.presence && Current.visitor.update!(user: @user)
         redirect_to after_login_path, notice: "Signed in."
       end
     else

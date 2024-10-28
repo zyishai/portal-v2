@@ -38,4 +38,8 @@ Rails.application.routes.draw do
       delete "destroy_all"
     end
   end
+
+  # Analytics routes
+  post "enable_analytics", to: "analytics#enable", as: :enable_analytics
+  delete "clear_history", to: "analytics#clear_history", as: :clear_history
 end
