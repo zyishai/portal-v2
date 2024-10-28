@@ -17,7 +17,8 @@ module SetCurrentVisitor
 
   def create_current_visitor
     visitor = Visitor.create!(
-      user_agent: request.user_agent
+      user_agent: request.user_agent,
+      user: current_user.presence
     )
     session[:visitor_id] = visitor.id
 
